@@ -32,14 +32,33 @@ class Store_Management:
         sql = "SELECT * FROM product"
         self.cursor.execute(sql)
         products = self.cursor.fetchall()
-        for product in products:
-            print(product)
+        return products
+        # for product in products:
+        #     print(product)
             
     def display_product_in_category(self):
         sql = "SELECT product.id, product.name, product.description, product.price, product.quantity, product.id_category FROM product LEFT JOIN category ON category.id = product.id_category"
         self.cursor.execute(sql)
         self.produit_available = self.cursor.fetchall()
-        return self.produit_available       
+        return self.produit_available  
+    
+    def count_product(self): 
+        sql = "SELECT COUNT(*) AS nb FROM product"
+        self.cursor.execute(sql)
+        nb = self.cursor.fetchone()
+        return nb
+
+    def name_product(self): 
+        sql = "SELECT name FROM product"
+        self.cursor.execute(sql)
+        name = self.cursor.fetchall()
+        return name
+    
+    def description_product(self): 
+        sql = "SELECT description FROM product"
+        self.cursor.execute(sql)
+        description = self.cursor.fetchall()
+        return description        
         
     def close_connection(self):
         self.cursor.close()

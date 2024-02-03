@@ -27,15 +27,34 @@ class Add_Food(Global):
 
     def display_image(self):    
         self.img_back("bakground","images/food/image6.png")    
-        self.image("damier1","images/food/image1.png",800,40,0,35)  
+        self.image("damier1","images/food/image1.png",800,40,0,35) 
+       
  
     def display_text(self): 
         self.text_c4(" served until 11:45 PM", self.red, 20, 10)
         self.text_c1(" — My Food List —", self.white, 180,515)
 
-    def rectangle(self): 
+    def rectangle(self):                 
+       
+        # Rect hauts: nom du produits, prix
+        self.rect_full(self.light_grey, 400, 140, 450, 240, 5)
+        self.rect_border(self.grey, 400, 140, 450, 240, 4, 5)   
+        self.rect_full(self.white, 400, 60, 300, 40, 5) # Name
+        self.rect_full(self.white, 400, 170, 400, 150, 5) # Description
+        
+        # Rect bas: titre
         self.rect_full(self.brown, 400, 550, 450, 80, 5)
         self.rect_border(self.yellow, 400, 550, 450, 80, 4, 5)      
+        self.image("fleche","images/food/image3.png",20,20,560,50) # Flèche
+      
+    def button_menu(self):
+        button_rect = pygame.Rect(720, 10, 70, 25)
+        if self.is_mouse_over_button(button_rect):
+            self.rect_radius(5, self.yellow, 720, 10, 70, 25)
+            self.text_c4("QUIT", self.black, 733, 13)
+        else:
+            self.rect_radius(5, self.light_grey, 720, 10, 70, 25)
+            self.text_c4("QUIT", self.black, 733, 13)
 
     def display_design(self):
         self.screen.fill(self.white)
@@ -43,12 +62,28 @@ class Add_Food(Global):
         self.rectangle()
         self.display_text()
         self.display_item()
-        # self.draw_rectangles(self.rectangles_position)   
+        # self.draw_rectangles(self.rectangles_position)  
+        self.button_menu()
 
     def display_item(self): 
-        products = self.store_m.display_product()
-        for product in products: 
-            print(product)
+        products = self.store_m.display_product() 
+        
+        for i in products: 
+            print(i)
+
+        # count_info = 0
+
+        # product = 1
+
+        # for product in products:
+        #     product = product + 1             
+        #     print(product)
+
+
+     # count_info = count_info + 1
+
+
+
     
     # def draw_rectangles(self, x_pos):  
     #     nb = self.store_m.count_product()
@@ -119,8 +154,10 @@ class Add_Food(Global):
                     run = False
 
                 elif event.type == pygame.MOUSEBUTTONDOWN: 
-                   if self.is_mouse_over_button(pygame.Rect(640, 10, 70, 25)):
-                        print("menu")
+                   if self.is_mouse_over_button(pygame.Rect(20,20,560,50)):
+                       pass
+                        
+                        
 
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:

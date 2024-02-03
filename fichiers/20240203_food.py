@@ -35,58 +35,67 @@ class Add_Food(Global):
 
     def rectangle(self): 
         self.rect_full(self.brown, 400, 550, 450, 80, 5)
-        self.rect_border(self.yellow, 400, 550, 450, 80, 4, 5)      
+        self.rect_border(self.yellow, 400, 550, 450, 80, 4, 5) 
+
+    def display(self): 
+        pass
+        # products = self.store_m.display_product()
+        # for product in products:
+
+
+
 
     def display_design(self):
         self.screen.fill(self.white)
         self.display_image()
         self.rectangle()
         self.display_text()
-        self.display_item()
-        # self.draw_rectangles(self.rectangles_position)   
-
-    def display_item(self): 
-        products = self.store_m.display_product()
-        for product in products: 
-            print(product)
+        self.draw_rectangles(self.rectangles_position)   
     
-    # def draw_rectangles(self, x_pos):  
-    #     nb = self.store_m.count_product()
-    #     name_product = self.store_m.name_product()
-    #     description_product = self.store_m.description_product()
+    def draw_rectangles(self, x_pos):  
+        nb = self.store_m.count_product()
+        name_product = self.store_m.name_product()
+        description_product = self.store_m.description_product()
 
-    #     images = {
-    #         0: pygame.image.load("images/food/image20.jpg"),
-    #         1: pygame.image.load("images/food/image20.jpg"), 
-    #         2: pygame.image.load("images/food/image20.jpg"), 
-    #         3: pygame.image.load("images/food/image20.jpg"), 
-    #         4: pygame.image.load("images/food/image20.jpg"), 
-    #     }
+        images = {
+            0: pygame.image.load("images/food/image20.jpg"),
+            1: pygame.image.load("images/food/image20.jpg"), 
+            2: pygame.image.load("images/food/image20.jpg"), 
+            3: pygame.image.load("images/food/image20.jpg"), 
+            4: pygame.image.load("images/food/image20.jpg"), 
+        }
 
-    #     if nb:
-    #         nb = nb[0]
-    #         for i in range(nb): 
-    #             rect = pygame.Rect(x_pos + i * (self.rect_width + 10), self.height // 2 - self.rect_height // 2, self.rect_width, self.rect_height)
-    #             pygame.draw.rect(self.screen, self.orange, rect)
-    #             pygame.draw.rect(self.screen, self.yellow, rect, 5)    
+        if nb:
+            nb = nb[0]
+            for i in range(nb):
 
-    #             str_name = name_product[i][0]
-    #             result1 = str_name + ' '
+                rect = pygame.Rect(x_pos + i * (self.rect_width + 10), self.height // 2 - self.rect_height // 2, self.rect_width, self.rect_height)
 
-    #             rect2 = pygame.Rect(rect.x, rect.y + rect.height, rect.width, 20)  # Rectangle pour la description sous le nom
-    #             str_name = description_product[i][0]
-    #             result2 = str_name + ' '
+                pygame.draw.rect(self.screen, self.white, rect)                
+                pygame.draw.rect(self.screen, self.grey, rect, 2)  
 
-    #             if rect.collidepoint(pygame.mouse.get_pos()):
-    #                 pygame.draw.rect(self.screen, self.black, rect, 5)
-    #                 if i in images:
-    #                     image = images[i]
-    #                     image = pygame.transform.scale(image, (110, 119))
-    #                     self.screen.blit(image, (400, 120))
+                str_name = name_product[i][0]
+                result1 = str_name + ' ' # Titre
 
-    #             self.text_center2(result1, self.black, rect, 0)
-    #             self.text_center2(result2, self.black, rect2, 0)
+                str_name = description_product[i][0]
 
+                result2 = str_name + ' ' # Description
+                rect2 = pygame.Rect(x_pos + i * (self.rect_width + 10), self.height // 2 - 30, self.rect_width, self.rect_height)
+
+                if rect.collidepoint(pygame.mouse.get_pos()):
+
+                    # dessiner rect
+                    pygame.draw.rect(self.screen, self.yellow, rect, 5)   
+        
+                    # afficher texte
+
+                    if i in images:
+                        image = images[i]
+                        image = pygame.transform.scale(image,(110,119))    
+                        self.screen.blit(image,(400, 120))
+
+                self.text_center2(result1, self.black, rect, 0)
+                self.text_center1(result2, self.black, rect2, 0)
 
      
     # def display_product(self):

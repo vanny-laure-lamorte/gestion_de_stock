@@ -8,7 +8,7 @@ class Global:
         self.screen_width = 800
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Store")
+        pygame.display.set_caption("Pokémon")
         self.clock = pygame.time.Clock()
 
         self.black = "#0e0f10"
@@ -17,8 +17,8 @@ class Global:
         self.orange = "#f26b33"
         self.beige = "#f2dec2"
         self.yellow = "#f6be2a"
-
-        self.grey = "#3c3c3c"   
+        self.light_grey = "#f2f2f2"
+        self.grey = "#868686"   
         
        
         self.blue = "#375daa"
@@ -30,10 +30,10 @@ class Global:
         self.green2 = "#61e002"
 
         self.police_c1 = pygame.font.Font("AirstreamNF.ttf",60)
-        self.police_c2 = pygame.font.Font("AirstreamNF.ttf",30)  
+        self.police_c2 = pygame.font.Font("AirstreamNF.ttf",30)
         self.police_c3 = pygame.font.Font("AirstreamNF.ttf",18)
+        self.police_c4 = pygame.font.Font(None,20)  
 
-        self.police_c4 = pygame.font.Font("AirstreamNF.ttf",18)  
         self.police_c5 = pygame.font.Font("AirstreamNF.ttf",15)    
         self.police_c6 = pygame.font.Font("AirstreamNF.ttf", 12)    
         self.police_p1 = pygame.font.Font("AirstreamNF.ttf", 25)
@@ -81,6 +81,18 @@ class Global:
         text_surface = self.police_p1.render(text, True, color)
         self.screen.blit(text_surface, (x, y))
 
+    def text_center1(self,text,color,rect,nb):
+        text_surface = self.police_c3.render(text, True, color)
+        text_rect = text_surface.get_rect()
+        text_rect.center = (rect.centerx, rect.centery - nb)
+        self.screen.blit(text_surface, text_rect)
+
+    def text_center2(self,text,color,rect,nb):
+        text_surface = self.police_c2.render(text, True, color)
+        text_rect = text_surface.get_rect()
+        text_rect.center = (rect.centerx, rect.centery - nb)
+        self.screen.blit(text_surface, text_rect)
+
 #def image
     def image(self,name,path,a,b,x,y):
         name = pygame.image.load(path)
@@ -114,3 +126,7 @@ class Global:
     def rect_border(self, color, x, y, largeur, longueur, epaisseur, arrondi):
         button = pygame.draw.rect(self.screen, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, arrondi)
         return button
+    
+    def button_link(self, text):      
+        self.rect_radius(5, self.white, 640, 10, 70, 25)
+        self.text_c1(text, self.black, 650, 13)
