@@ -8,7 +8,7 @@ class Global:
         self.screen_width = 800
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Pokémon")
+        pygame.display.set_caption("Store")
         self.clock = pygame.time.Clock()
 
         self.black = "#0e0f10"
@@ -35,6 +35,7 @@ class Global:
         self.police_c4 = pygame.font.Font(None,20)  
 
         self.police_c5 = pygame.font.Font("AirstreamNF.ttf",15)    
+        
         self.police_c6 = pygame.font.Font("AirstreamNF.ttf", 12)    
         self.police_p1 = pygame.font.Font("AirstreamNF.ttf", 25)
         self.lst_name = []
