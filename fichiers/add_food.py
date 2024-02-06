@@ -45,6 +45,7 @@ class Add_Food(Global):
         mouse_pos = pygame.mouse.get_pos()
         return button_rect.collidepoint(mouse_pos)  
 
+
     def add_food_run(self): 
         self.add_food_running = True
         self.run() 

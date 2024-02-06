@@ -1,6 +1,5 @@
 import pygame
 
-
 class Global:
 
     def __init__(self):
@@ -22,10 +21,8 @@ class Global:
         self.grey = "#868686"   
         
        
-        self.blue = "#375daa"
-        
-        self.green = "#488030"
-        
+        self.blue = "#375daa"        
+        self.green = "#488030"        
         self.pink = "#f8a8b0"
         self.red = "#d80001"
         self.green2 = "#61e002"
@@ -40,15 +37,15 @@ class Global:
         self.police_p1 = pygame.font.Font("AirstreamNF.ttf", 25)
         self.lst_name = []
         
-#def text  
+# Def text  
         
-    #L 
+    
     def texte(self, texte_size, texte_content, color, x, y):
         pygame.font.init()
         Texte = pygame.font.Font("AirstreamNF.ttf", texte_size).render(texte_content, True, color)
         Texte_rect = Texte.get_rect(center=(x, y))
         self.screen.blit(Texte, Texte_rect)
-    #L
+    
     def texte_not_align(self, texte_size, texte_content, color, x, y):
         Texte = pygame.font.Font('files/font/metrophobic.ttf', texte_size).render(texte_content, True, color)
         Texte_rect = Texte.get_rect(topleft=(x, y))
@@ -94,7 +91,7 @@ class Global:
         text_rect.center = (rect.centerx, rect.centery - nb)
         self.screen.blit(text_surface, text_rect)
 
-#def image
+# Def image
     def image(self,name,path,a,b,x,y):
         name = pygame.image.load(path)
         name = name.convert_alpha()
@@ -109,13 +106,11 @@ class Global:
         y = (self.screen_height - H_name)//2
         self.screen.blit(name, (x, y))
     
-# def rectangle   
+# Def rectangle   
              
-        # Rectangle 
     def rect(self,nom, x1,y1,x2,y2):   
         nom = pygame.Rect(x1,y1,x2,y2)
 
-            # Rectangle Radius
     def rect_radius(self,radius,color,x1,y1,x2,y2):
         r = radius
         pygame.draw.rect(self.screen,color,(x1,y1,x2,y2),border_radius = r)  
