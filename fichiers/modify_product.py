@@ -1,5 +1,5 @@
-from fichiers.global_def import Global
-from fichiers.store_management import Store_Management
+from global_def import Global
+from store_management import Store_Management
 
 import mysql.connector
 import pygame
@@ -22,11 +22,14 @@ class Modify_Product(Global):
             self.cursor = self.connection.cursor()
             pygame.init()        
 
+    def background(self): 
+        self.image("background","images/modify/modify4.jpeg",800, 600,0, 0)
+
     def rectangle(self):                 
        
         # Rect hauts: nom du produits, prix
         self.rect_full(self.light_grey, 400, 300, 450, 400, 5) # Big rect gris
-        self.rect_border(self.grey, 400, 300, 450, 400, 4, 5) # Big border gris      
+        self.rect_border(self.brown, 400, 300, 450, 400, 4, 5) # Big border gris      
 
         self.rect_full(self.white, 400, 160, 300, 40, 5) # Name
         self.rect_full(self.white, 400, 240, 415, 60, 5) # Description
@@ -51,12 +54,12 @@ class Modify_Product(Global):
         save_rect = pygame.Rect(420, 522, 200, 45)
         if self.is_mouse_over_button(save_rect):
             self.rect_full(self.yellow, 520, 540, 200, 45, 5)
-            self.rect_border(self.yellow, 520, 540, 200, 45, 4, 5)    
-            self.texte(16,"Save Changes", self.black, 520, 540)     
+            self.rect_border(self.yellow, 520, 540, 200, 45, 3, 5)  
+            self.text_c4("SAVE CHANGES", self.black, 470, 535)  
         else:
-            self.rect_full(self.white, 520, 540, 200, 45, 5)
-            self.rect_border(self.grey, 520, 540, 200, 45, 4, 5)
-            self.texte(16,"Save Changes", self.black, 520, 540) 
+            self.rect_full(self.light_grey, 520, 540, 200, 45, 5)
+            self.rect_border(self.brown, 520, 540, 200, 45, 3, 5)
+            self.text_c4("SAVE CHANGES", self.black, 470, 535)
 
     def display_item(self): 
 
@@ -88,18 +91,18 @@ class Modify_Product(Global):
         return button_rect.collidepoint(mouse_pos)   
     
     def arrow_left(self): 
-        arrow_l = pygame.Rect(30,30,100,255)  
+        arrow_l = pygame.Rect(35,35,100,255)  
         if self.is_mouse_over_button(arrow_l):        
-            self.image("arrow logo","images/food/image4.png",35,35,100,250)
+            self.image("arrow logo","images/food/image4.png",40,40,100,250)
         else: 
-            self.image("arrow logo","images/food/image4.png",30,30,100,255)
+            self.image("arrow logo","images/food/image4.png",35,35,100,255)
 
     def arrow_right(self):
-        arrow_r = pygame.Rect(670, 250, 30, 30) 
+        arrow_r = pygame.Rect(670, 250, 35, 35) 
         if self.is_mouse_over_button(arrow_r): 
-            self.image("arrow logo","images/food/image3.png",35,35,660,250) 
+            self.image("arrow logo","images/food/image3.png",40,40,660,250) 
         else:
-            self.image("arrow logo","images/food/image3.png",30,30,660,250)   
+            self.image("arrow logo","images/food/image3.png",35,35,660,250)   
     
     def delete_logo(self): 
         bin_rect = pygame.Rect(500, 430, 50, 50)            
@@ -126,7 +129,8 @@ class Modify_Product(Global):
         pygame.draw.rect(self.screen, self.white, self.quantity_input_rect)      
 
     def display_design(self):
-        self.screen.fill(self.white)
+        self.screen.fill(self.light_brown)
+        self.background()        
         self.rectangle()
         self.display_item()
         self.button_menu()
@@ -148,12 +152,12 @@ class Modify_Product(Global):
                     self.modify_product_running = False
 
                 elif event.type == pygame.MOUSEBUTTONDOWN: 
-                    if self.is_mouse_over_button(pygame.Rect(670, 250, 30, 30)): 
+                    if self.is_mouse_over_button(pygame.Rect(670, 250, 35, 35)): 
                         if self.count_info == 0: 
                             self.count_info =  len(self.products)-1                     
                         else:
                             self.count_info = self.count_info - 1
-                    elif self.is_mouse_over_button(pygame.Rect(30,30,100,255)):
+                    elif self.is_mouse_over_button(pygame.Rect(35,35,100,255)):
                         if self.count_info == len(self.products)-1: 
                             self.count_info = 0                            
                         else:
@@ -163,7 +167,14 @@ class Modify_Product(Global):
                     #     if self.price != "" and self.quantity != "": 
                     #         self.store_m.modify_product(self.name, self.description, self.price, self.quantity, self.id_category)
 
+                    # Supprimer un produit
+                    elif self.is_mouse_over_button(pygame.Rect(500, 430, 50, 50)):
+                        # self.product_id = self.count_info
+                        self.store_m.delete_product(self.products[self.count_info][0])
+                        # Mettre a jour la nouvelle liste
+                        # self.products = self.store_m.delete_product()
 
+                    # Retour au Menu
                     elif self.is_mouse_over_button(pygame.Rect(720, 10, 70, 25)):
                         self.modify_product_running = False
 
@@ -180,6 +191,6 @@ class Modify_Product(Global):
             pygame.display.flip()
             pygame.display.update()
 
-# modify_product = Modify_Product()
-# modify_product.modify_product_run()
+modify_product = Modify_Product()
+modify_product.modify_product_run()
     
