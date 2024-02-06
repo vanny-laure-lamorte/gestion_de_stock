@@ -19,24 +19,7 @@ class Menu(Global):
         self.options()       
 
     # Afficher rectangles blancs et étoile         
-    def  draw_menu_option(self, rect, text, pos):
-        menu_text = self.police_p1.render(text, True, self.grey)
-        if rect.collidepoint(pygame.mouse.get_pos()):
-            pygame.draw.rect(self.screen, self.white, rect.inflate(10, 10), border_radius=10)
-            if pos==(710 - 100, 235 + 0 * 65, 200, 50):
-                self.image("étoile",r"images/menu/image1.png",20,20,742,210)
-            elif pos==(665 - 100, 235 + 1 * 65, 200, 50):
-                self.image("étoile",r"images/menu/image1.png",20,20,742,275)
-                
-            elif pos==(730- 100, 235 + 2 * 65, 200, 50):
-                self.image("étoile",r"images/menu/image1.png",20,20,742,345)
-
-            elif pos==(730- 100, 235 + 2 * 65, 200, 50):
-                self.image("étoile",r"images/menu/image1.png",20,20,742,345)
-        else:
-            pygame.draw.rect(self.screen, self.white, rect, border_radius=10)
-        self.screen.blit(menu_text, pos) 
-
+  
        
     def is_mouse_over_button(self, button_rect):
         mouse_pos = pygame.mouse.get_pos()
@@ -53,7 +36,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_food):
             self.rect_full(self.white, 650, 225, 240, 65, 5)            
             self.text_c2("My Food", self.black, 600, 210)
-            self.image("étoile",r"images/menu/image1.png",20,20,775,185)
+            self.image("étoile",r"images/menu/image1.png",20,20,760,185)
         else:
             self.rect_full(self.white, 650, 225, 235, 60, 5) 
             self.text_c2("My Food", self.black, 600, 210)
@@ -62,6 +45,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_add):
             self.rect_full(self.white, 650, 300, 240, 65, 5)            
             self.text_c2("Add New Product", self.black, 555, 285)
+            self.image("étoile",r"images/menu/image1.png",20,20,760,260)
         else:
             self.rect_full(self.white, 650, 300, 235, 60, 5) 
             self.text_c2("Add New Product", self.black, 555, 285)
@@ -70,6 +54,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_modify):
             self.rect_full(self.white, 650, 375, 240, 65, 5)            
             self.text_c2("Edit Product Details", self.black, 540, 360)
+            self.image("étoile",r"images/menu/image1.png",20,20,760,335)
         else:
             self.rect_full(self.white, 650, 375, 235, 60, 5) 
             self.text_c2("Edit Product Details", self.black, 540, 360)
@@ -78,6 +63,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_quit):
             self.rect_full(self.white, 650, 450, 240, 65, 5)            
             self.text_c2("Quit", self.black, 635, 435)
+            self.image("étoile",r"images/menu/image1.png",20,20,760,410)
         else:
             self.rect_full(self.white, 650, 450, 235, 60, 5) 
             self.text_c2("Quit", self.black, 635, 435)

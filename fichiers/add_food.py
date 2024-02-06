@@ -1,5 +1,5 @@
-from global_def import Global
-from store_management import Store_Management
+from fichiers.global_def import Global
+from fichiers.store_management import Store_Management
 import pygame
 import mysql.connector
 
@@ -189,6 +189,6 @@ class Add_Food(Global):
             pygame.display.flip()
             pygame.display.update()
   
-add_food = Add_Food()
-add_food.add_food_run()
+# add_food = Add_Food()
+# add_food.add_food_run()
     

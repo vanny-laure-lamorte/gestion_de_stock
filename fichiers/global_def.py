@@ -14,6 +14,7 @@ class Global:
         self.black = "#0e0f10"
         self.white = "#ffffff"
         self.brown = "#502c1e"
+        self.light_brown = "#9f6736"
         self.orange = "#f26b33"
         self.beige = "#f2dec2"
         self.yellow = "#f6be2a"
@@ -33,8 +34,7 @@ class Global:
         self.police_c2 = pygame.font.Font("AirstreamNF.ttf",30)
         self.police_c3 = pygame.font.Font("AirstreamNF.ttf",18)
         self.police_c4 = pygame.font.Font(None,20)  
-
-        self.police_c5 = pygame.font.Font("AirstreamNF.ttf",15)    
+        self.police_c5 = pygame.font.Font("AirstreamNF.ttf",25)    
         
         self.police_c6 = pygame.font.Font("AirstreamNF.ttf", 12)    
         self.police_p1 = pygame.font.Font("AirstreamNF.ttf", 25)

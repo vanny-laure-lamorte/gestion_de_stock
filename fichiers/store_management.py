@@ -24,7 +24,7 @@ class Store_Management:
 
     def modify_product(self, product_id, new_product):
         set_clause = ", ".join([f"{key} = '{value}'" for key, value in new_product.items()])
-        sql = f"UPDATE product SET {set_clause} WHERE id = %s" # VERIFIER
+        sql = f"UPDATE product SET {set_clause} WHERE id = %s"
         self.cursor.execute(sql, (product_id,))
         self.connection.commit()
 
@@ -33,9 +33,7 @@ class Store_Management:
         self.cursor.execute(sql)
         products = self.cursor.fetchall()
         return products
-        # for product in products:
-        #     print(product)
-            
+             
     def display_product_in_category(self):
         sql = "SELECT product.id, product.name, product.description, product.price, product.quantity, product.id_category FROM product LEFT JOIN category ON category.id = product.id_category"
         self.cursor.execute(sql)
@@ -64,10 +62,10 @@ class Store_Management:
         self.cursor.close()
         self.connection.close()
 
-food_manager = Store_Management() # MODIFIER
+# food_manager = Store_Management() 
 # food_manager.add_product("Pizza", "Pizza with pineapple", 15, 30, 1)
 # food_manager.modify_product(8, {'name': 'Tortilla'}) #MODIFIER
 # food_manager.delete_product(7)
-food_manager.display_product()
-food_manager.display_product_in_category()
+# food_manager.display_product()
+# food_manager.display_product_in_category()
 # food_manager.close_connection()

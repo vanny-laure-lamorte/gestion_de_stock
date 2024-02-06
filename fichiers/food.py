@@ -86,8 +86,7 @@ class Food(Global):
 
         for i, product in enumerate(self.products):
 
-            if self.count_info == i:
-                # id = product[0]
+            if self.count_info == i:        
                 name = product[1]
                 description = product[2]
                 price = str(product[3])
