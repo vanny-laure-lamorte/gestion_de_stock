@@ -26,7 +26,7 @@ class Menu(Global):
         button_modify = pygame.Rect(533, 345, 235, 60) # Edit Product Details
         button_quit = pygame.Rect(533, 420, 235, 60) # Quit
 
-        # My Food
+        # Hover My Food
         if self.is_mouse_over_button(button_food):
             self.rect_full(self.white, 650, 225, 240, 65, 5)            
             self.image("étoile",r"images/menu/image1.png",20,20,760,185)
@@ -36,7 +36,7 @@ class Menu(Global):
             self.rect_full(self.white, 650, 225, 235, 60, 5) 
             self.text_c1("My Food", self.brown, 600, 210)            
 
-        # Add New Product
+        # Hover Add New Product
         if self.is_mouse_over_button(button_add):
             self.rect_full(self.white, 650, 300, 240, 65, 5)            
             self.text_c1("Add New Product", self.brown, 555, 285)
@@ -45,7 +45,7 @@ class Menu(Global):
             self.rect_full(self.white, 650, 300, 235, 60, 5) 
             self.text_c1("Add New Product", self.brown, 555, 285)
 
-        # Edit Product Details
+        # Hover Edit Product Details
         if self.is_mouse_over_button(button_modify):
             self.rect_full(self.white, 650, 375, 240, 65, 5)            
             self.text_c1("Edit Product Details", self.brown, 540, 360)
@@ -54,7 +54,7 @@ class Menu(Global):
             self.rect_full(self.white, 650, 375, 235, 60, 5) 
             self.text_c1("Edit Product Details", self.brown, 540, 360)
         
-        # Quit
+        # Hover Quit
         if self.is_mouse_over_button(button_quit):
             self.rect_full(self.white, 650, 450, 240, 65, 5)            
             self.text_c1("Quit", self.brown, 635, 435)
@@ -62,10 +62,10 @@ class Menu(Global):
         else:
             self.rect_full(self.white, 650, 450, 235, 60, 5) 
             self.text_c1("Quit", self.brown, 635, 435)
-       
- 
-    def display(self): 
-        self.options()        
+
+    def DisplayAll (self): 
+        self.options()     
+   
 
     # Afficher choix du menu
     def menu_run(self): 
@@ -95,7 +95,7 @@ class Menu(Global):
                         pygame.quit()
                         sys.exit()  
 
-            self.display()
+            self.DisplayAll()
 
             pygame.display.update()
             pygame.display.flip()

@@ -12,7 +12,7 @@ class Add_Food(Global):
             self.price = "" 
             self.quantity = "" 
             self.id_category = "" 
-                       
+                                   
             self.connection = mysql.connector.connect(
                 host="localhost",
                 user="root",
@@ -48,7 +48,7 @@ class Add_Food(Global):
         self.add_food_running = True
         self.run() 
 
-    def input(self):  
+    def input(self): 
 
         # Section Titre
         self.rect_full(self.brown, 250, 320, 450, 425, 5) 
@@ -61,36 +61,23 @@ class Add_Food(Global):
         self.texte(20, self.name, self.black, 250, 160)
         self.texte(20, "Name : ", self.white, 70, 160) 
 
-        self.rect_full(self.white, 425, 160, 60, 60, 5)
-        self.input_name_v = self.rect_border(self.grey,
-        425, 160, 60, 60, 2, 5)
-
         # Price
         self.rect_full(self.white, 250, 240, 280, 60, 5)
         self.input_price = self.rect_border(self.grey, 250, 240, 280, 60, 2, 5)
         self.texte(20, self.price, self.black, 250, 240) 
         self.texte(20, "Price :", self.white, 70, 240) 
 
-        self.rect_full(self.white, 425, 240, 60, 60, 5) 
-        self.input_price_v = self.rect_border(self.grey, 425, 240, 60, 60, 2, 5)
-    
         # Quantity
         self.rect_full(self.white, 250, 320, 280, 60, 5)
         self.input_quantity = self.rect_border(self.grey, 250, 320, 280, 60, 2, 5)
         self.texte(20, self.quantity, self.black, 250, 320)
         self.texte(20, "Quantity :", self.white, 70, 320) 
 
-        self.rect_full(self.white, 425, 320, 60, 60, 5) 
-        self.input_quantity_v= self.rect_border(self.grey, 425, 320, 60, 60, 2, 5)
-
              #Description
         self.rect_full(self.white, 265, 400,240, 60, 5)
         self.input_description = self.rect_border(self.grey, 265, 400, 240, 60, 2, 5)
         self.texte(20, self.description, self.black, 265, 400)
         self.texte(20, "Description :", self.white, 85, 400) 
-
-        self.rect_full(self.white, 425, 400, 60, 60, 5) 
-        self.input_description_v = self.rect_border(self.grey, 425, 400, 60, 60, 2, 5)   
 
         # Catégory
         self.rect_full(self.white, 360, 480, 60, 60, 5)
@@ -100,9 +87,6 @@ class Add_Food(Global):
         self.texte(20, "Enter   1 for meat", self.white, 190, 460)
         self.texte(20, "2 for vegetarian", self.white, 240, 480)
         self.texte(20, "3 for a side", self.white, 225, 500)
-
-        self.rect_full(self.white, 425, 480, 60, 60, 5) 
-        self.input_id_category_v= self.rect_border(self.grey, 425, 480,60, 60, 2, 5)  
 
     def check_button(self):
         check_rect = pygame.Rect(330, 550, 150, 40)
@@ -157,11 +141,12 @@ class Add_Food(Global):
 
                 elif event.type == pygame.KEYDOWN:                    
                     if self.entry == 1:
-                        if event.unicode.isalpha():
+                        if event.key == pygame.K_BACKSPACE:
+                            self.name = self.name[:-1]
+                        elif event.unicode:
                             self.name = self.name + event.unicode
                             self.name = self.name.capitalize() 
-                        elif event.key == pygame.K_BACKSPACE:
-                            self.name = self.name[:-1]
+                  
                     elif self.entry == 2:
                         if event.key == pygame.K_BACKSPACE:
                             self.description = self.description[:-1]

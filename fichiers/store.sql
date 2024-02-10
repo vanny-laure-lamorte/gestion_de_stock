@@ -35,7 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Hot Food'),(2,'Treats'),(3,'Drinks');
+INSERT INTO `category` VALUES (1,'Carnivore'),(2,'Vegetarian'),(3,'Side');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `product` (
   `quantity` int DEFAULT NULL,
   `id_category` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Cheeseburger','Classic All-American Cheeseburger with Cheddar Cheese and topped with burger sauce, lettuce, tomatoes, and onion',14,50,1),(2,'Cowboy Burger','Thick-cut Hamburger that is served on a toasted bun with onions, cheese, bacon, optional jalapeños and BBQ sauce',16,40,2),(3,'Veggie Burger','A meatless Hamburger patty made from vegetables for a hearty alternative to beef. Served with lettuce, tomato, and onion, and your choice of mayonnaise or dressing on a Hawaiian roll',13,20,3),(4,'Hot Dog Classic',' Simple but magnifique hot dog with crispy onions toppings, ketchup and mustard',8,10,4),(5,'Buffalo Chiken Wings','6 pcs of chicken wings coated in our flour mix and Southern fried. Crispy and juicy',9,60,5),(6,'Fries','Skins left on the fries and seasonedwith Rosemary and Cajun',3,60,6);
+INSERT INTO `product` VALUES (2,'Cowboy Burger','Angus Beef, Cheddar Cheese, Bacon and Jalapeños',17,40,1),(3,'Veggie Burger','Meatless Hamburger Patty, Halloumi & Salad',13,20,2),(4,'Hot Dog Classic','Crispy Onions, Ketchup & Mustard',8,10,1),(5,'Buffalo Chiken Wings','6pcs of Chicken Wings with Buffalo sauce',9,60,3),(6,'Fries','Skins left on the fries and seasonedwith Rosemary and Cajun',3,60,3),(9,'Sweet Potato Fries','Crispy baked Sweet Potato',4,50,3),(10,'Salad','lettuce, tomato, avocado',10,20,2),(12,'Veggie Hot Dog','Plant Made Hot Dog',11,15,2),(13,'Soup','Soup Butternut Squash',10,15,2),(14,'Cheesy Fries','Fries with Cheese',5,50,3),(15,'Curly Fries','Fries with Cajun',7,50,3),(16,'Cheesy bread','Bread with Cheese',5,50,3),(32,'Nuggets','6 pcs nuggets',8,30,3),(33,'Bread','Chessy bread',8,1,3);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -76,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-01 12:33:40
+-- Dump completed on 2024-02-10 17:14:22

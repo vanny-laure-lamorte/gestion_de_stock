@@ -73,8 +73,8 @@ class Global:
     
 # Def rectangle   
              
-    def rect(self,nom, x1,y1,x2,y2):   
-        nom = pygame.Rect(x1,y1,x2,y2)
+    # def rect(self,nom, x1,y1,x2,y2):   
+    #     nom = pygame.Rect(x1,y1,x2,y2)
 
     def rect_radius(self,radius,color,x1,y1,x2,y2):
         r = radius
