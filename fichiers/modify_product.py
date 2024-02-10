@@ -1,9 +1,6 @@
 from fichiers.global_def import Global
 from fichiers.store_management import Store_Management
 
-# from global_def import Global
-# from store_management import Store_Management
-
 import mysql.connector
 import pygame
 
@@ -222,15 +219,9 @@ class Modify_Product(Global):
                     
                         elif self.entry == 7:
                             if event.unicode.isdigit():
-                                self.quantity_modified = self.quantity_modified + event.unicode
-
-        
+                                self.quantity_modified = self.quantity_modified + event.unicode       
                   
             self.display_design()       
 
             pygame.display.flip()
             pygame.display.update()
-
-# modify_product = Modify_Product()
-# modify_product.modify_product_run()
-    

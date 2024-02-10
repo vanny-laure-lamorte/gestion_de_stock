@@ -2,7 +2,7 @@ from fichiers.global_def import Global
 from fichiers.store_management import Store_Management
 
 import mysql.connector
-import pygame
+import pygame, sys
 
 class Food(Global):
     def __init__(self): 
@@ -26,7 +26,7 @@ class Food(Global):
         
     def display_text(self): 
         self.texte(16," served until 11:45 PM", self.red, 80, 25)
-        self.text_c1(" — My Food List —", self.white, 180,515)
+        self.text_c2(" — My Food List —", self.white, 180,515)
 
     def rectangle(self):                 
        
@@ -117,7 +117,8 @@ class Food(Global):
         while self.food_running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.food_run = False
+                    pygame.quit()
+                    sys.exit()
 
                 elif event.type == pygame.MOUSEBUTTONDOWN: 
                     if self.is_mouse_over_button(pygame.Rect(20,20,220,50)): 
@@ -137,7 +138,3 @@ class Food(Global):
           
             pygame.display.flip()
             pygame.display.update()
-
-# food = Food()
-# food.food_run()
-    
