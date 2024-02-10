@@ -22,7 +22,7 @@ class Global:
         self.green = "#488030"        
         self.red = "#d80001"    
 
-        self.police_c1 = pygame.font.Font("AirstreamNF.ttf",60)
+        self.police_c1 = pygame.font.Font("AirstreamNF.ttf",30)
         self.police_c2 = pygame.font.Font("AirstreamNF.ttf",30)
         self.police_c3 = pygame.font.Font("AirstreamNF.ttf",18)
         self.police_c4 = pygame.font.Font(None,20)  

@@ -28,7 +28,6 @@ class Store_Management:
         self.cursor.execute(sql, (product_id,))
         self.connection.commit()
 
-
     def display_product(self):
         sql = "SELECT * FROM product"
         self.cursor.execute(sql)

@@ -15,12 +15,6 @@ class Menu(Global):
         self.modify_product = Modify_Product()
         self.store_management = Store_Management()
 
-    def menu_run(self): 
-        self.options()       
-
-    # Afficher rectangles blancs et étoile         
-  
-       
     def is_mouse_over_button(self, button_rect):
         mouse_pos = pygame.mouse.get_pos()
         return button_rect.collidepoint(mouse_pos) 
@@ -35,38 +29,40 @@ class Menu(Global):
         # My Food
         if self.is_mouse_over_button(button_food):
             self.rect_full(self.white, 650, 225, 240, 65, 5)            
-            self.text_c2("My Food", self.black, 600, 210)
             self.image("étoile",r"images/menu/image1.png",20,20,760,185)
+            self.text_c1("My Food", self.orange, 600, 210)
         else:
+          
             self.rect_full(self.white, 650, 225, 235, 60, 5) 
-            self.text_c2("My Food", self.black, 600, 210)
+            self.text_c1("My Food", self.orange, 600, 210)
+            
 
         # Add New Product
         if self.is_mouse_over_button(button_add):
             self.rect_full(self.white, 650, 300, 240, 65, 5)            
-            self.text_c2("Add New Product", self.black, 555, 285)
+            self.text_c1("Add New Product", self.orange, 555, 285)
             self.image("étoile",r"images/menu/image1.png",20,20,760,260)
         else:
             self.rect_full(self.white, 650, 300, 235, 60, 5) 
-            self.text_c2("Add New Product", self.black, 555, 285)
+            self.text_c1("Add New Product", self.orange, 555, 285)
 
         # Edit Product Details
         if self.is_mouse_over_button(button_modify):
             self.rect_full(self.white, 650, 375, 240, 65, 5)            
-            self.text_c2("Edit Product Details", self.black, 540, 360)
+            self.text_c1("Edit Product Details", self.orange, 540, 360)
             self.image("étoile",r"images/menu/image1.png",20,20,760,335)
         else:
             self.rect_full(self.white, 650, 375, 235, 60, 5) 
-            self.text_c2("Edit Product Details", self.black, 540, 360)
+            self.text_c1("Edit Product Details", self.orange, 540, 360)
         
         # Quit
         if self.is_mouse_over_button(button_quit):
             self.rect_full(self.white, 650, 450, 240, 65, 5)            
-            self.text_c2("Quit", self.black, 635, 435)
+            self.text_c1("Quit", self.orange, 635, 435)
             self.image("étoile",r"images/menu/image1.png",20,20,760,410)
         else:
             self.rect_full(self.white, 650, 450, 235, 60, 5) 
-            self.text_c2("Quit", self.black, 635, 435)
+            self.text_c1("Quit", self.orange, 635, 435)
        
  
     def display(self): 
@@ -76,7 +72,6 @@ class Menu(Global):
     def menu_run(self): 
         self.running = True
         img_back = pygame.image.load(r"images/menu/image2.jpg").convert()
-
 
         while self.running:
             self.screen.blit(img_back, (0, 0))                               

@@ -114,7 +114,7 @@ class Add_Food(Global):
             self.text_c4("ADD TO THE LIST", self.black,337, 560)      
        
     def message_box(self):            
-            self.text_c5("Added to the list", self.green, 70, 560)
+            self.text_c1("Added to the list", self.green, 70, 560)
             self.image("Add_logo","images/add/add1.png",25,25, 280,553)  
             pygame.display.flip()
             pygame.time.delay(2000)
@@ -147,7 +147,7 @@ class Add_Food(Global):
                     elif self.input_id_category.collidepoint(event.pos):                   
                         self.entry = 5
                    
-                    elif self.is_mouse_over_button(pygame.Rect(330, 550, 150, 40)):
+                    elif self.is_mouse_over_button(pygame.Rect(330, 550, 150, 40)): 
                         if self.name != "" and self.description != "" and self.price != "" and self.quantity != "" and self.id_category != "" and int(self.id_category) in (1, 2,3):                  
                             self.sm.add_product(self.name, self.description, float(self.price), int(self.quantity), int(self.id_category)) 
                             self.message_box()                                                
