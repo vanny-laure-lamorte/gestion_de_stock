@@ -19,24 +19,15 @@ class Global:
         self.yellow = "#f6be2a"
         self.light_grey = "#f2f2f2"
         self.grey = "#868686"   
-        
-       
-        self.blue = "#375daa"        
         self.green = "#488030"        
-        self.pink = "#f8a8b0"
-        self.red = "#d80001"
-        self.green2 = "#61e002"
+        self.red = "#d80001"    
 
         self.police_c1 = pygame.font.Font("AirstreamNF.ttf",60)
         self.police_c2 = pygame.font.Font("AirstreamNF.ttf",30)
         self.police_c3 = pygame.font.Font("AirstreamNF.ttf",18)
         self.police_c4 = pygame.font.Font(None,20)  
         self.police_c5 = pygame.font.Font("AirstreamNF.ttf",25)    
-        
-        self.police_c6 = pygame.font.Font("AirstreamNF.ttf", 12)    
-        self.police_p1 = pygame.font.Font("AirstreamNF.ttf", 25)
-        self.lst_name = []
-        
+     
 # Def text  
         
     
@@ -57,40 +48,11 @@ class Global:
 
     def text_c2(self,text, color, x, y):
         text_surface = self.police_c2.render(text, True, color)
-        self.screen.blit(text_surface, (x, y))
-
-    def text_c3(self,text, color, x, y):
-        text_surface = self.police_c3.render(text, True, color)
-        self.screen.blit(text_surface, (x, y))
 
     def text_c4(self,text, color, x, y):
         text_surface = self.police_c4.render(text, True, color)
         self.screen.blit(text_surface, (x, y))
-        
-    def text_c5(self,text, color, x, y):
-        text_surface = self.police_c5.render(text, True, color)
-        self.screen.blit(text_surface, (x, y))
-    
-    def text_c6(self,text, color, x, y):
-        text_surface = self.police_c6.render(text, True, color)
-        self.screen.blit(text_surface, (x, y))
-
-    def text_p1(self,text, color, x, y):
-        text_surface = self.police_p1.render(text, True, color)
-        self.screen.blit(text_surface, (x, y))
-
-    def text_center1(self,text,color,rect,nb):
-        text_surface = self.police_c3.render(text, True, color)
-        text_rect = text_surface.get_rect()
-        text_rect.center = (rect.centerx, rect.centery - nb)
-        self.screen.blit(text_surface, text_rect)
-
-    def text_center2(self,text,color,rect,nb):
-        text_surface = self.police_c2.render(text, True, color)
-        text_rect = text_surface.get_rect()
-        text_rect.center = (rect.centerx, rect.centery - nb)
-        self.screen.blit(text_surface, text_rect)
-
+  
 # Def image
     def image(self,name,path,a,b,x,y):
         name = pygame.image.load(path)
@@ -123,6 +85,3 @@ class Global:
         button = pygame.draw.rect(self.screen, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, arrondi)
         return button
     
-    def button_link(self, text):      
-        self.rect_radius(5, self.white, 640, 10, 70, 25)
-        self.text_c1(text, self.black, 650, 13)

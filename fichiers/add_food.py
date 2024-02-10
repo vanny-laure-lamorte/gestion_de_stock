@@ -29,8 +29,7 @@ class Add_Food(Global):
     def display_title(self):
         self.rect_full(self.brown, 400, 50, 450, 80, 5)
         self.rect_border(self.yellow, 400, 50, 450, 80, 5, 5)
-        self.texte(40,"— Add A New Product —", self.white, 400, 50) 
-        
+        self.texte(40,"— Add A New Product —", self.white, 400, 50)        
 
     def button_menu(self):
         button_rect = pygame.Rect(720, 10, 70, 25)
@@ -44,7 +43,6 @@ class Add_Food(Global):
     def is_mouse_over_button(self, button_rect):
         mouse_pos = pygame.mouse.get_pos()
         return button_rect.collidepoint(mouse_pos)  
-
 
     def add_food_run(self): 
         self.add_food_running = True
