@@ -89,6 +89,6 @@ class Global:
         pygame.display.flip()
         pygame.display.update()
         self.clock.tick(60)
-        self.screen.fill((0, 0, 0))
+
 
     

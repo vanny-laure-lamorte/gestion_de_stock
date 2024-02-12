@@ -96,9 +96,7 @@ class Menu(Global):
                         sys.exit()  
 
             self.DisplayAll()
-            self.update()
-
-           
+            self.update()           
 
 menu = Menu()
 menu.menu_run()
