@@ -1,5 +1,5 @@
-from fichiers.global_def import Global
-from fichiers.store_management import Store_Management
+from files.global_def import Global
+from files.store_management import Store_Management
 
 import mysql.connector
 import pygame, sys
@@ -25,8 +25,8 @@ class Food(Global):
         return button_rect.collidepoint(mouse_pos)   
     
     def DisplayImage(self):    
-        self.img_back("bakground","images/food/image6.png")    
-        self.image("damier1","images/food/image1.png",800,40,0,35)
+        self.img_back("bakground","img/food/image6.png")    
+        self.image("damier1","img/food/image1.png",800,40,0,35)
         
     def DisplayText(self): 
         self.texte(16," served until 11:45 PM", self.red, 80, 25)
@@ -52,16 +52,16 @@ class Food(Global):
     def ArrowLeft(self): 
         arrow_l = pygame.Rect(20,20,220,50)  
         if self.is_mouse_over_button(arrow_l):        
-            self.image("arrow logo","images/food/image4.png",25,25,220,50)
+            self.image("arrow logo","img/food/image4.png",25,25,220,50)
         else: 
-            self.image("arrow logo","images/food/image4.png",20,20,220,50)
+            self.image("arrow logo","img/food/image4.png",20,20,220,50)
 
     def ArrowRight(self):
         arrow_r = pygame.Rect(560, 50, 20, 20) 
         if self.is_mouse_over_button(arrow_r): 
-            self.image("arrow logo","images/food/image3.png",25,25,560,50) 
+            self.image("arrow logo","img/food/image3.png",25,25,560,50) 
         else:
-            self.image("arrow logo","images/food/image3.png",20,20,560,50)  
+            self.image("arrow logo","img/food/image3.png",20,20,560,50)  
       
     def ButtonMenu(self):
         button_rect = pygame.Rect(720, 10, 70, 25)

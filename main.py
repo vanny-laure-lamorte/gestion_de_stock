@@ -1,8 +1,8 @@
-from fichiers.global_def import Global
-from fichiers.food import Food
-from fichiers.add_food import Add_Food
-from fichiers.modify_product import Modify_Product
-from fichiers.store_management import Store_Management
+from files.global_def import Global
+from files.food import Food
+from files.add_food import Add_Food
+from files.modify_product import Modify_Product
+from files.store_management import Store_Management
 
 import pygame, sys
 
@@ -29,7 +29,7 @@ class Menu(Global):
         # Hover My Food
         if self.is_mouse_over_button(button_food):
             self.rect_full(self.white, 650, 225, 240, 65, 5)            
-            self.image("étoile",r"images/menu/image1.png",20,20,760,185)
+            self.image("étoile",r"img/menu/image1.png",20,20,760,185)
             self.text_c1("My Food", self.brown, 600, 210)
         else:
           
@@ -40,7 +40,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_add):
             self.rect_full(self.white, 650, 300, 240, 65, 5)            
             self.text_c1("Add New Product", self.brown, 555, 285)
-            self.image("étoile",r"images/menu/image1.png",20,20,760,260)
+            self.image("étoile",r"img/menu/image1.png",20,20,760,260)
         else:
             self.rect_full(self.white, 650, 300, 235, 60, 5) 
             self.text_c1("Add New Product", self.brown, 555, 285)
@@ -49,7 +49,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_modify):
             self.rect_full(self.white, 650, 375, 240, 65, 5)            
             self.text_c1("Edit Product Details", self.brown, 540, 360)
-            self.image("étoile",r"images/menu/image1.png",20,20,760,335)
+            self.image("étoile",r"img/menu/image1.png",20,20,760,335)
         else:
             self.rect_full(self.white, 650, 375, 235, 60, 5) 
             self.text_c1("Edit Product Details", self.brown, 540, 360)
@@ -58,7 +58,7 @@ class Menu(Global):
         if self.is_mouse_over_button(button_quit):
             self.rect_full(self.white, 650, 450, 240, 65, 5)            
             self.text_c1("Quit", self.brown, 635, 435)
-            self.image("étoile",r"images/menu/image1.png",20,20,760,410)
+            self.image("étoile",r"img/menu/image1.png",20,20,760,410)
         else:
             self.rect_full(self.white, 650, 450, 235, 60, 5) 
             self.text_c1("Quit", self.brown, 635, 435)
@@ -70,7 +70,7 @@ class Menu(Global):
     # Afficher choix du menu
     def menu_run(self): 
         self.running = True
-        img_back = pygame.image.load(r"images/menu/image2.jpg").convert()
+        img_back = pygame.image.load(r"img/menu/image2.jpg").convert()
 
         while self.running:
             self.screen.blit(img_back, (0, 0))                               
@@ -96,10 +96,9 @@ class Menu(Global):
                         sys.exit()  
 
             self.DisplayAll()
+            self.update()
 
-            pygame.display.update()
-            pygame.display.flip()
-            self.clock.tick(60)
+           
 
 menu = Menu()
 menu.menu_run()

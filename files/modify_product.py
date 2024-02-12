@@ -1,9 +1,5 @@
-# from fichiers.global_def import Global
-# from fichiers.store_management import Store_Management
-
-from global_def import Global
-from store_management import Store_Management
-
+from files.global_def import Global
+from files.store_management import Store_Management
 
 import mysql.connector
 import pygame
@@ -27,7 +23,7 @@ class Modify_Product(Global):
             pygame.init()        
 
     def background(self): 
-        self.image("background","images/modify/modify4.jpeg",800, 600,0, 0)
+        self.image("background","img/modify/modify4.jpeg",800, 600,0, 0)
 
     def rectangle(self):                 
        
@@ -91,7 +87,6 @@ class Modify_Product(Global):
 
                 self.texte( 18,self.price_modified, self.orange, 480, 335) # Display price modified text
                 self.texte( 18, self.quantity_modified, self.orange, 480, 405) # Display quantity modified text
-
     
     def is_mouse_over_button(self, button_rect):
         mouse_pos = pygame.mouse.get_pos()
@@ -100,23 +95,23 @@ class Modify_Product(Global):
     def ArrowLeft(self): 
         arrow_l = pygame.Rect(35,35,100,255)  
         if self.is_mouse_over_button(arrow_l):        
-            self.image("arrow logo","images/food/image4.png",40,40,100,250)
+            self.image("arrow logo","img/food/image4.png",40,40,100,250)
         else: 
-            self.image("arrow logo","images/food/image4.png",35,35,100,255)
+            self.image("arrow logo","img/food/image4.png",35,35,100,255)
 
     def arrow_right(self):
         arrow_r = pygame.Rect(670, 250, 35, 35) 
         if self.is_mouse_over_button(arrow_r): 
-            self.image("arrow logo","images/food/image3.png",40,40,660,250) 
+            self.image("arrow logo","img/food/image3.png",40,40,660,250) 
         else:
-            self.image("arrow logo","images/food/image3.png",35,35,660,250)   
+            self.image("arrow logo","img/food/image3.png",35,35,660,250)   
     
     def delete_logo(self): 
         self.bin_rect = pygame.Rect(550, 450, 30, 30)            
         if self.is_mouse_over_button(self.bin_rect):
-            self.image("bin logo", "images/modify/modify1.png", 35, 35, 550, 450)
+            self.image("bin logo", "img/modify/modify1.png", 35, 35, 550, 450)
         else:
-            self.image("bin logo", "images/modify/modify1.png", 30, 30, 550, 450)
+            self.image("bin logo", "img/modify/modify1.png", 30, 30, 550, 450)
 
     def input(self):
 
@@ -132,13 +127,13 @@ class Modify_Product(Global):
 
     def ConfirmationModify(self): 
         self.texte(22,"Price and quantity modified", self.green, 340, 460) 
-        self.image("Add_logo","images/add/add1.png",20,20, 460,450)  
+        self.image("Add_logo","img/add/add1.png",20,20, 460,450)  
         pygame.display.flip()
         pygame.time.delay(2000)
 
     def ConfirmationDelete(self): 
         self.texte(22,"Product removed from list", self.green, 340, 460)    
-        self.image("Add_logo","images/add/add1.png",20,20, 450,450)  
+        self.image("Add_logo","img/add/add1.png",20,20, 450,450)  
         pygame.display.flip()
         pygame.time.delay(2000)
 
@@ -201,9 +196,7 @@ class Modify_Product(Global):
                                 new_product['quantity'] = int(self.quantity_modified)
 
                             self.store_m.modify_product(self.products[self.count_info][0], new_product)  
-                            self.ConfirmationModify()  
-                            
-                       
+                            self.ConfirmationModify()                            
 
                     # Link back to the menu
                     elif self.is_mouse_over_button(pygame.Rect(720, 10, 70, 25)):
@@ -227,8 +220,7 @@ class Modify_Product(Global):
                   
             self.DisplayAll()       
 
-            pygame.display.flip()
-            pygame.display.update()
+            self.update()
 
-test = Modify_Product()
-test.modify_product_run()
+# test = Modify_Product()
+# test.modify_product_run()

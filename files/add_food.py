@@ -1,5 +1,5 @@
-from fichiers.global_def import Global
-from fichiers.store_management import Store_Management
+from files.global_def import Global
+from files.store_management import Store_Management
 import pygame
 import mysql.connector
 
@@ -23,8 +23,8 @@ class Add_Food(Global):
             pygame.init()
 
     def background(self):
-            self.image("food_pic","images/add/add2.png",400, 800, 400, 90)
-            self.image("food_pic","images/add/add3.png",110, 110, 20, 7)
+            self.image("food_pic","img/add/add2.png",400, 800, 400, 90)
+            self.image("food_pic","img/add/add3.png",110, 110, 20, 7)
 
     def display_title(self):
         self.rect_full(self.brown, 400, 50, 450, 80, 5)
@@ -99,7 +99,7 @@ class Add_Food(Global):
        
     def message_box(self):            
             self.text_c1("Added to the list", self.green, 70, 560)
-            self.image("Add_logo","images/add/add1.png",25,25, 280,553)  
+            self.image("Add_logo","img/add/add1.png",25,25, 280,553)  
             pygame.display.flip()
             pygame.time.delay(2000)
 
@@ -170,8 +170,7 @@ class Add_Food(Global):
                             self.id_category = self.id_category[:-1]                        
             
             self.display_design()                         
-            pygame.display.flip()
-            pygame.display.update()
+            self.update()
   
 # add_food = Add_Food()
 # add_food.add_food_run()

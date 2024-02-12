@@ -72,9 +72,6 @@ class Global:
         self.screen.blit(name, (x, y))
     
 # Def rectangle   
-             
-    # def rect(self,nom, x1,y1,x2,y2):   
-    #     nom = pygame.Rect(x1,y1,x2,y2)
 
     def rect_radius(self,radius,color,x1,y1,x2,y2):
         r = radius
@@ -87,4 +84,11 @@ class Global:
     def rect_border(self, color, x, y, largeur, longueur, epaisseur, arrondi):
         button = pygame.draw.rect(self.screen, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, arrondi)
         return button
+    
+    def update(self):
+        pygame.display.flip()
+        pygame.display.update()
+        self.clock.tick(60)
+        self.screen.fill((0, 0, 0))
+
     
